@@ -6,15 +6,25 @@
 const redux = require('redux'); // 1. Import statement in Node - importing redux 
 
 // 3. Reducer funtion will receive 2 parameters
-//      - param 1 => current state or old state
+//      - param 1 => current state or old state 
 //      - param 2 => dispatched action
 
-const counterReducer = (state, action) => {
+const counterReducer = (state = {counter: 0}, action) => {
     return {counter: state.counter + 1}
 };
 
-const store = redux.createStore(); // 2. Creating a store from redux
+const store = redux.createStore(counterReducer); // 2. Creating a store from redux
 
+// 4. Subscription
+const subscriber = () => {
+    const latestState = store.getState();
+    console.log(latestState);
+}
 
+// 5. Making subscription in the store
+store.subscribe(subscriber);
+
+// 6. Dipatch action
+store.dispatch({type: 'increment'});
 
  
