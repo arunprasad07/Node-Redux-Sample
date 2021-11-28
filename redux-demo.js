@@ -27,4 +27,8 @@ store.subscribe(subscriber);
 // 6. Dipatch action
 store.dispatch({type: 'increment'});
 
+// Notes
+// Install Redux = npm install redux
+// 1. Run the JS file in Node = node .\redux-demo.js
+
  
